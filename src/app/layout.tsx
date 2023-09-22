@@ -2,9 +2,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 // import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { ApolloProvider, ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-/* Conection with backend */
+/* Connection with backend */
 const client = new ApolloClient({
   uri: 'https://wp.caribbeanconcept.net/graphql',
   cache: new InMemoryCache()
