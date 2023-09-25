@@ -1,6 +1,5 @@
 import { getClient } from "@/lib/client";
 import { gql } from "@apollo/client";
-// import React from "react";
 import Image from "next/image";
 
 export const dynamic = "force-dynamic";

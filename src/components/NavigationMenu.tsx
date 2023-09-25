@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { getClient } from "@/lib/client";
 import { gql } from "@apollo/client";
+import Link from "next/link"
 
 // Menu by Name, ver lib/client.ts alli esta la configuracion del endpoint de graphql
 const query = gql(`
@@ -56,9 +56,6 @@ export default async function ServerSide() {
     query,
   });
 
-  // Console.log opcional para verificar que funcione el request
-  // console.log("Menu Data: ", data.data.menu.menuItems)
-
   const MenuItems = flatListToHierarchical( data.data.menuItems.nodes );
 
   // Return del componente jsx con los valores del menu
@@ -69,6 +66,7 @@ export default async function ServerSide() {
         {
           MenuItems.map((menuItem) => (
             <li key={menuItem.id}>
+              {/* TODO: Implementar los children */}
               <Link href={menuItem.path}>
                 {menuItem.title}
               </Link>

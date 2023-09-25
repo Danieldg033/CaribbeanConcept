@@ -1,4 +1,4 @@
-function IndexPage () {
+export default function Index () {
   return (
     <>
       <br />
@@ -8,5 +8,3 @@ function IndexPage () {
     </>
   )
 }
-
-export default IndexPage
