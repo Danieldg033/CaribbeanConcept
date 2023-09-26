@@ -17,7 +17,7 @@ const query = gql(`
   }
 `);
 
-// Esto es de typescript, si lo comentas funciona ingual
+// Esto es de typescript, si lo comentas funciona igual
 // interface Response {
 //   menu: { 
 //     count: number; 
