@@ -1,6 +1,7 @@
 import { getClient } from "@/lib/client";
 import { gql } from "@apollo/client";
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 // Menu by Name, ver lib/client.ts alli esta la configuracion del endpoint de graphql
 const query = gql(`
@@ -15,6 +16,17 @@ const query = gql(`
       }
     }
   }
+`);
+
+// Logo de Caribbean Concept por graphQL y Apollo 
+const caribbeanConceptLogo = gql(`
+    {
+      mediaItem(id: "caribbean-concept-logo", idType: SLUG) {
+        id
+        title
+        sourceUrl
+      }
+    }
 `);
 
 // Esto es de typescript, si lo comentas funciona igual
@@ -61,19 +73,28 @@ export default async function ServerSide() {
   // Return del componente jsx con los valores del menu
   return(
     <>
-      <h1>Menu</h1>
-      <ul>
-        {
-          MenuItems.map((menuItem) => (
-            <li key={menuItem.id}>
-              {/* TODO: Implementar los children */}
-              <Link href={menuItem.path}>
-                {menuItem.title}
-              </Link>
-            </li>
-          ))
-        }
-      </ul>
+      <nav className="bg-neutral-100 pt-9">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+              <div className="flex flex-shrink-0 justify-center items-center">
+                <Image className="h-12 w-auto" src="https://wp.caribbeanconcept.net/wp-content/uploads/2023/10/caribbean-concept-logo.png" alt="Caribbean Concept logo"  width={900}
+                height={900}/>
+              </div>
+          <div className="relative flex h-24 items-center justify-between">
+            <div className="flex flex-1 justify-center items-center justify-around mt-12 ">
+          {
+            MenuItems.map((menuItem) => (
+              <div key={menuItem.id} className="flex space-x-4 justify-between">
+                {/* TODO: Implementar los children */}
+                <Link href={menuItem.path} className="text-black hover:bg-gray-200 hover:text-black rounded-md px-3 py-2 text-sm font-medium">
+                  {menuItem.title}
+                </Link>
+              </div>
+            ))
+          }
+            </div>
+          </div>
+        </div>
+      </nav>
     </>
   )
 

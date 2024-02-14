@@ -4,7 +4,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'robohash.org',
+        // hostname: 'robohash.org',
+        hostname: 'wp.caribbeanconcept.net',
       },
     ],
   },
